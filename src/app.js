@@ -1,6 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const request = require('request');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://shone:shone@cluster0.whdxi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    .then((res) => {
+        console.log('ConnectDatabase success')
+    }).catch(err => {
+        console.error("Error connect database")
+    })
 
 const app = express();
 require('./bot-listener');

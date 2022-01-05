@@ -1,7 +1,8 @@
 const request = require('request');
 const { COIN_GECKO_API } = require('./constants');
 const bot = require('./my-bot');
-const redis = require('./redis-config');
+const ChatIds = require('./models/chatId');
+// const redis = require('./redis-config');
 const listCommands = {
     comingpools: /\/comingpools/,
     today: /\/today/,
@@ -10,10 +11,16 @@ const listCommands = {
 }
 
 bot.on('message', async(msg) => {
-    // console.log(msg);
+    try {
+        // console.log(msg);
+        await ChatIds.findOneAndUpdate({}, { chatId: msg.chat.id }, { upsert: true })
+        console.log('Save chatid success')
+            // bot.sendMessage(msg.chat.id, "Hello")
+            // redis.set('last-chat-id', msg.chat.id);
+    } catch (error) {
+        console.log('Error when save chat id', error.message);
+    }
 
-    // bot.sendMessage(msg.chat.id, "Hello")
-    redis.set('last-chat-id', msg.chat.id);
 })
 
 bot.onText(listCommands.comingpools, (msg, match) => {
