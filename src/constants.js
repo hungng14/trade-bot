@@ -1,0 +1,5 @@
+module.exports = {
+    BOT_TELEGRAM_ENDPOINT: process.env.BOT_TELEGRAM_ENDPOINT,
+    BOT_TELEGRAM_TOKEN: process.env.BOT_TELEGRAM_TOKEN,
+    COIN_GECKO_API: process.env.COIN_GECKO_API
+}

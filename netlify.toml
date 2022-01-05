@@ -1,0 +1,20 @@
+[functions]
+directory = "functions/"
+
+[[redirects]]
+from = "/"
+status = 200
+to = "dist/index.html"
+
+[build]
+command = "yarn build"
+functions = "functions"
+publish = "dist"
+
+# [dev]
+#   command = "npm start"
+#   functions = "functions" 
+#   publish = "docs"
+#   port=8000 # destination port to use in browser. Lambda dev server is started on same port
+#   targetPort=3000 # port that local rollup server is running on
+#   framework = "#custom"
