@@ -6,10 +6,10 @@ from = "/"
 status = 200
 to = "dist/index.html"
 
-[build]
-command = "yarn build"
-functions = "functions"
-publish = "dist"
+# [build]
+# command = "yarn build"
+# functions = "functions"
+# publish = "dist"
 
 # [dev]
 #   command = "npm start"
